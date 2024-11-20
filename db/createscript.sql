@@ -42,3 +42,33 @@ CREATE TABLE HoogsteAchtbaanVanEuropa
     ,DatumGewijzigd      DATETIME(6)                    NOT NULL
     ,CONSTRAINT          PK_HoogsteAchtbaanVanEuropa    PRIMARY KEY CLUSTERED(Id)
 ) ENGINE=InnoDB;
+
+
+-- Step : 03
+-- ********************************************************************
+-- Doel : Vul de tabel HoogsteAchtbaanVanEuropa met data
+-- ******************************************************************
+-- Versie   Datum          Auteur               Omschrijving
+-- ******   *****          ******               ************
+-- 01       20-11-2024     Arjan de Ruijter     Vulling Tabel HoogsteAchtbaan 
+--                                              VanEuropa
+-- *********************************************************************
+
+INSERT INTO HoogsteAchtbaanVanEuropa
+(
+     NaamAchtbaan        
+    ,NaamPretPark        
+    ,Land                
+    ,Topsnelheid         
+    ,Hoogte              
+    ,IsActief                
+    ,Opmerking
+    ,DatumAangemaakt     
+    ,DatumGewijzigd
+)
+VALUES
+ ('Kingda Ka', 'Six Flags Great Adventure', 'Verenigd koninkrijk', 206, 127, 1, NULL, SYSDATE(6), SYSDATE(6))
+,('Red Force', 'Ferrari Land', 'Spanje', 180, 112, 1, NULL, SYSDATE(6), SYSDATE(6))
+,('Hyperion', 'Energylandia', 'Polen', 142, 77, 1, NULL, SYSDATE(6), SYSDATE(6))
+,('Shambhala', 'PortAventura Park', 'Spanje', 134, 76, 1, NULL, SYSDATE(6), SYSDATE(6))
+,('Schwur des Kärnan', 'Hansa Park', 'Duitsland', 127, 73, 1, NULL, SYSDATE(6), SYSDATE(6));
