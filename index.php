@@ -55,7 +55,7 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
  * We tonen even de resultaten op het scherm zodat we weten wat we 
  * opgehaald hebben uit de database
  */
-var_dump($result);
+// var_dump($result);
 
 
 
@@ -70,28 +70,34 @@ var_dump($result);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head>
   <body>
+    <div class="container">
+        
+
+      <h3>Hoogste achtbanen van Europa</h3>
+
+      <table class="table table-hover">
+          <thead>
+              <th>Naam Achtbaan</th>
+              <th>Naam Pretpark</th>
+              <th>Land</th>
+              <th>Topsnelheid</th>
+              <th>Hoogte</th>
+          </thead>
+          <tbody>
+              <?php foreach ($result as $row) : ?>
+                  <tr>
+                      <td><?= $row->NaamAchtbaan ?></td>
+                      <td><?= $row->NaamPretpark ?></td>
+                      <td><?= $row->Land ?></td>
+                      <td><?= $row->Topsnelheid ?></td>
+                      <td><?= $row->Hoogte ?></td>
+                  </tr>
+              <?php endforeach;  ?>
+          </tbody>
+      </table>
 
 
-    <h3>Hoogste achtbanen van Europa</h3>
-
-    <table class="table table-hover">
-        <thead>
-            <th>Naam Achtbaan</th>
-            <th>Naam Pretpark</th>
-            <th>Land</th>
-            <th>Topsnelheid</th>
-            <th>Hoogte</th>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Big One</td>
-                <td>Blackpool Pleasure Beach </td>
-                <td>Verenigd Koninkrijk</td>
-                <td>119</td>
-                <td>65</td>
-            </tr>
-        </tbody>
-    </table>
+    </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
