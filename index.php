@@ -72,30 +72,38 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
   <body>
     <div class="container">
         
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8"><h3>Hoogste achtbanen van Europa</h3></div>
+            <div class="col-2"></div>
+        </div>
 
-      <h3>Hoogste achtbanen van Europa</h3>
-
-      <table class="table table-hover">
-          <thead>
-              <th>Naam Achtbaan</th>
-              <th>Naam Pretpark</th>
-              <th>Land</th>
-              <th>Topsnelheid</th>
-              <th>Hoogte</th>
-          </thead>
-          <tbody>
-              <?php foreach ($result as $row) : ?>
-                  <tr>
-                      <td><?= $row->NaamAchtbaan ?></td>
-                      <td><?= $row->NaamPretpark ?></td>
-                      <td><?= $row->Land ?></td>
-                      <td><?= $row->Topsnelheid ?></td>
-                      <td><?= $row->Hoogte ?></td>
-                  </tr>
-              <?php endforeach;  ?>
-          </tbody>
-      </table>
-
+        <div class="row">
+          <div class="col-2"></div>
+          <div class="col-8">
+              <table class="table table-hover">
+                <thead>
+                    <th>Naam Achtbaan</th>
+                    <th>Naam Pretpark</th>
+                    <th>Land</th>
+                    <th>Topsnelheid</th>
+                    <th>Hoogte</th>
+                </thead>
+                <tbody>
+                    <?php foreach ($result as $row) : ?>
+                        <tr>
+                            <td><?= $row->NaamAchtbaan ?></td>
+                            <td><?= $row->NaamPretpark ?></td>
+                            <td><?= $row->Land ?></td>
+                            <td><?= $row->Topsnelheid ?></td>
+                            <td><?= $row->Hoogte ?></td>
+                        </tr>
+                    <?php endforeach;  ?>
+                </tbody>
+              </table>
+          </div>
+          <div class="col-2"></div>
+        </div>
 
     </div>
 
