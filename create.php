@@ -96,7 +96,7 @@
         <div class="row" style="display:<?= $display ?? 'none'; ?>">
             <div class="col-3"></div>
             <div class="col-6">
-              <div class="alert alert-success" role="alert">
+              <div class="alert alert-success text-center" role="alert">
                 De gegevens zijn toegevoegd. U wordt teruggestuurd naar de index-pagina.
               </div>
             </div>
