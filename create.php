@@ -1,3 +1,12 @@
+<?php
+  // var_dump($_POST);
+  /**
+   * De inloggegevens van de gebruiker van de database binnenhalen
+   */
+  include('config/config.php');
+
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -19,28 +28,30 @@
         <div class="row">
           <div class="col-3"></div>
           <div class="col-6">
-            <form>
+            <form action="create.php" method="POST">
                 <div class="mb-3">
                     <label for="inputNaamAchtbaan" class="form-label">Naam Achtbaan:</label>
-                    <input placeholder="Vul de naam van de achtbaan in" type="text" class="form-control" id="inputNaamAchtbaan">
+                    <input name="naamAchtbaan" placeholder="Vul de naam van de achtbaan in" type="text" class="form-control" id="inputNaamAchtbaan">
                 </div>
                 <div class="mb-3">
-                    <label for="inputNaamAchtbaan" class="form-label">Naam Pretpark:</label>
-                    <input placeholder="Vul de naam van de achtbaan in" type="text" class="form-control" id="inputNaamAchtbaan">
+                    <label for="inputNaamPretpark" class="form-label">Naam Pretpark:</label>
+                    <input name="naamPretpark" placeholder="Vul de naam van de achtbaan in" type="text" class="form-control" id="inputNaamPretpark">
                 </div>
                 <div class="mb-3">
                     <label for="inputLand" class="form-label">Land:</label>
-                    <input placeholder="Vul de naam van het land in" type="text" class="form-control" id="inputLand">
+                    <input name="land" placeholder="Vul de naam van het land in" type="text" class="form-control" id="inputLand">
                 </div>
                 <div class="mb-3">
                     <label for="inputTopsnelheid" class="form-label">Topsnelheid:</label>
-                    <input placeholder="Vul de topsnelheid in" type="number" min="0" max="255" class="form-control" id="inputTopsnelheid">
+                    <input name="topsnelheid" placeholder="Vul de topsnelheid in" type="number" min="0" max="255" class="form-control" id="inputTopsnelheid">
                 </div>
                 <div class="mb-3">
                     <label for="inputHoogte" class="form-label">Hoogte:</label>
-                    <input placeholder="Vul de hoogte in" type="number" min="0" max="255" class="form-control" id="inputHoogte">
+                    <input name="hoogte" placeholder="Vul de hoogte in" type="number" min="0" max="255" class="form-control" id="inputHoogte">
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="d-grid gap-2">
+                    <button name="submit" type="submit" class="btn btn-primary btn-lg mt-2">Verstuur</button>
+                </div>
             </form>
           </div>
           <div class="col-3"></div>
