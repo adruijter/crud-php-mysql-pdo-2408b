@@ -22,7 +22,8 @@ $pdo = new PDO($dsn, $dbUser, $dbPass);
  * haalt. Sorteer op op hoogte aflopend
  */
 
-$sql = "SELECT  HAVE.NaamAchtbaan
+$sql = "SELECT  HAVE.Id
+               ,HAVE.NaamAchtbaan
                ,HAVE.NaamPretpark
                ,HAVE.Land
                ,HAVE.Topsnelheid
@@ -95,6 +96,8 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
                     <th>Land</th>
                     <th>Topsnelheid</th>
                     <th>Hoogte</th>
+                    <th></th>
+                    <th></th>
                 </thead>
                 <tbody>
                     <?php foreach ($result as $row) : ?>
@@ -104,6 +107,16 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
                             <td><?= $row->Land ?></td>
                             <td><?= $row->Topsnelheid ?></td>
                             <td><?= $row->Hoogte ?></td>
+                            <td>
+                              <a href="detail.php?id=<?= $row->Id; ?>">
+                                  <i class="bi bi-pencil-square text-primary"></i>
+                              </a>
+                            </td>
+                            <td>
+                              <a href="delete.php?id=<?= $row->Id; ?>">
+                                <i class="bi bi-x-square text-danger"></i>
+                              </a>
+                            </td>
                         </tr>
                     <?php endforeach;  ?>
                 </tbody>

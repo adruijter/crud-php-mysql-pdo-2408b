@@ -1,10 +1,84 @@
 <?php
-  // var_dump($_POST);
+  if (isset($_POST['submit'])) {
+
+    // var_dump($_POST);
   /**
    * De inloggegevens van de gebruiker van de database binnenhalen
    */
   include('config/config.php');
 
+  /**
+   * We gaan gebruikmaken van PDO (PHP-DataObjects) en die wil de
+   * inloggegevens in een dsn-string (data-sourcenamestring) hebben
+   */
+  $dsn = "mysql:host=$dbHost;
+          dbname=$dbName;
+          charset=UTF8";
+
+  /**
+   * Maak een nieuw PDO-object zodat we een verbinding hebben met onze database
+   */
+  $pdo = new PDO($dsn, $dbUser, $dbPass);
+
+  /**
+   * We gaan de $_POST waarden schoonmaken met de functie
+   * filter_input_array. Deze functie filtert de waarden van een
+   * array met een opgegeven filter. In dit geval FILTER_SANITIZE_STRING
+   */
+  $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+  /**
+   * Maak een insert-query die de gegevens uit het formulier in de tabel zet
+   * van de database
+   */
+  // Opdrachtje maak een insert query...
+  $sql = "INSERT INTO HoogsteAchtbaanVanEuropa
+          (
+               NaamAchtbaan        
+              ,NaamPretPark        
+              ,Land                
+              ,Topsnelheid         
+              ,Hoogte              
+              ,IsActief                
+              ,Opmerking
+              ,DatumAangemaakt     
+              ,DatumGewijzigd
+          )
+          VALUES
+          (    :naamAchtbaan
+              ,:naamPretpark
+              ,:land
+              ,:topsnelheid
+              ,:hoogte
+              ,1 
+              ,NULL
+              ,SYSDATE(6) 
+              ,SYSDATE(6)
+          )";
+
+  /**
+   * Bereidt de sql-query voor voor uitvoering in PDO
+   */
+  $statement = $pdo->prepare($sql);
+
+  $statement->bindValue(':naamAchtbaan', $_POST['naamAchtbaan'], PDO::PARAM_STR);
+  $statement->bindValue(':naamPretpark', $_POST['naamPretpark'], PDO::PARAM_STR);
+  $statement->bindValue(':land', $_POST['land'], PDO::PARAM_STR);
+  $statement->bindValue(':topsnelheid', $_POST['topsnelheid'], PDO::PARAM_INT);
+  $statement->bindValue(':hoogte', $_POST['hoogte'], PDO::PARAM_INT);
+
+  /**
+   * Voer de gepreparede sql-query uit
+   */
+  $statement->execute();
+
+  /**
+   * Geef een melding dat de gegevens zijn toegevoegd
+   */
+  echo "De gegevens zijn toegevoegd";
+
+  header('Refresh:3; index.php');
+  }
 ?>
 
 <!doctype html>
