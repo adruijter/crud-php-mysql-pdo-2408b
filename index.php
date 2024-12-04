@@ -31,7 +31,7 @@ $sql = "SELECT  HAVE.Id
         
         FROM HoogsteAchtbaanVanEuropa AS HAVE
         
-        ORDER BY Hoogte ASC" ;
+        ORDER BY Hoogte DESC" ;
 
 /**
  * Met de method prepare van het pdo-object maak je de sql-query
