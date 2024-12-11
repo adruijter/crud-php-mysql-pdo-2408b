@@ -141,6 +141,17 @@
           <div class="col-3"></div>
         </div>
 
+        <div class="row mt-3">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <a href="index.php">
+                    <i class="bi bi-arrow-left-square-fill text-danger" style="font-size:1.5em"></i>
+                </a>
+            </div>
+            <div class="col-3"></div>
+        </div>
+
+
     </div>
 
 
