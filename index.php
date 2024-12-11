@@ -108,7 +108,7 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
                             <td><?= $row->Topsnelheid ?></td>
                             <td><?= $row->Hoogte ?></td>
                             <td>
-                              <a href="detail.php?id=<?= $row->Id; ?>">
+                              <a href="update.php?id=<?= $row->Id; ?>">
                                   <i class="bi bi-pencil-square text-primary"></i>
                               </a>
                             </td>
