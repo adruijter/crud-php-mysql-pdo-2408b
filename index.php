@@ -28,6 +28,7 @@ $sql = "SELECT  HAVE.Id
                ,HAVE.Land
                ,HAVE.Topsnelheid
                ,HAVE.Hoogte
+               ,DATE_FORMAT(HAVE.Bouwjaar, '%d-%m-%Y') AS Bouwjaar
         
         FROM HoogsteAchtbaanVanEuropa AS HAVE
         
@@ -75,20 +76,20 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
     <div class="container mt-3">
         
         <div class="row">
-            <div class="col-2"></div>
-            <div class="col-8"><h3 class="text-primary">Hoogste achtbanen van Europa</h3></div>
-            <div class="col-2"></div>
+            <div class="col-1"></div>
+            <div class="col-10"><h3 class="text-primary">Hoogste achtbanen van Europa</h3></div>
+            <div class="col-1"></div>
         </div>
 
         <div class="row">
-          <div class="col-2"></div>
-          <div class="col-2"><h6>Nieuwe achtbaan <a href="./create.php"><i class="bi bi-plus-square text-danger"></i></a></h5></div>
+          <div class="col-1"></div>
+          <div class="col-3"><h6>Nieuwe achtbaan <a href="./create.php"><i class="bi bi-plus-square text-danger"></i></a></h5></div>
           <div class="col-2"></div>
         </div>
 
         <div class="row">
-          <div class="col-2"></div>
-          <div class="col-8">
+          <div class="col-1"></div>
+          <div class="col-10">
               <table class="table table-hover">
                 <thead>
                     <th>Naam Achtbaan</th>
@@ -96,8 +97,9 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
                     <th>Land</th>
                     <th>Topsnelheid</th>
                     <th>Hoogte</th>
-                    <th></th>
-                    <th></th>
+                    <th>Bouwjaar</th>
+                    <th>Update</th>
+                    <th>Delete</th>
                 </thead>
                 <tbody>
                     <?php foreach ($result as $row) : ?>
@@ -105,14 +107,15 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
                             <td><?= $row->NaamAchtbaan ?></td>
                             <td><?= $row->NaamPretpark ?></td>
                             <td><?= $row->Land ?></td>
-                            <td><?= $row->Topsnelheid ?></td>
-                            <td><?= $row->Hoogte ?></td>
-                            <td>
+                            <td class="text-center"><?= $row->Topsnelheid ?></td>
+                            <td class="text-center"><?= $row->Hoogte ?></td>
+                            <td><?= $row->Bouwjaar; ?></td>
+                            <td class="text-center">
                               <a href="update.php?id=<?= $row->Id; ?>">
                                   <i class="bi bi-pencil-square text-primary"></i>
                               </a>
                             </td>
-                            <td>
+                            <td class="text-center">
                               <a href="delete.php?id=<?= $row->Id; ?>">
                                 <i class="bi bi-x-square text-danger"></i>
                               </a>
@@ -122,7 +125,7 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
                 </tbody>
               </table>
           </div>
-          <div class="col-2"></div>
+          <div class="col-1"></div>
         </div>
 
     </div>

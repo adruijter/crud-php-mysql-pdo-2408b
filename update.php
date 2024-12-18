@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
      */
     // var_dump($_POST);
 
-    /**
+        /**
      * Maak een update-query die de gegevens uit het formulier in de tabel zet
      * van de database
      */
@@ -42,6 +42,7 @@ if (isset($_POST['submit'])) {
                   ,HAVE.Land         = :land
                   ,HAVE.Topsnelheid  = :topsnelheid
                   ,HAVE.Hoogte       = :hoogte
+                  ,HAVE.Bouwjaar     = :bouwjaar
             
             WHERE  HAVE.Id = :id";
 
@@ -61,17 +62,24 @@ if (isset($_POST['submit'])) {
     $statement->bindValue(':topsnelheid', $_POST['topsnelheid'], PDO::PARAM_INT);
     $statement->bindValue(':hoogte', $_POST['hoogte'], PDO::PARAM_INT);
     $statement->bindValue(':id', $_POST['Id'], PDO::PARAM_INT);
+    $statement->bindValue(':bouwjaar', $_POST['bouwjaar'], PDO::PARAM_STR);
 
     /**
      * Voer nu de gepreparede sql-query uit op de database
      */
-    $statement->execute();
-
+    $result = $statement->execute();
+    
+    // var_dump($result);
     /**
      * Stuur de gebruiker terug naar de index.php
      */
-
-    $display = 'flex';
+    if ($result) {
+        $display = 'flex';
+        $message = 'Het record is gewijzigd';
+    } else {
+        $display = 'flex';
+        $message = 'Er is iets misgegaan met het wijzigen van het record';
+    }
 
     header('Refresh:4; url=index.php');    
 } else {
@@ -86,6 +94,7 @@ $sql = "SELECT  HAVE.Id
                ,HAVE.Land
                ,HAVE.Topsnelheid
                ,HAVE.Hoogte
+               ,HAVE.Bouwjaar
         
         FROM HoogsteAchtbaanVanEuropa AS HAVE
         
@@ -173,6 +182,10 @@ $result = $statement->fetch(PDO::FETCH_OBJ);
                 <div class="mb-3">
                     <label for="inputHoogte" class="form-label">Hoogte:</label>
                     <input name="hoogte" placeholder="Vul de hoogte in" type="number" min="0" max="255" class="form-control" id="inputHoogte" value="<?= $result->Hoogte ?? $_POST['hoogte']; ?>">
+                </div>
+                <div class="mb-3">
+                    <label for="inputBouwjaar" class="form-label">Bouwjaar:</label>
+                    <input name="bouwjaar" placeholder="Vul het bouwjaar in" type="date" min="1900-01-01"  class="form-control" id="inputHoogte" value="<?= $result->Bouwjaar ?? $_POST['bouwjaar']; ?>">
                 </div>
                 <input type="hidden" name="Id" value="<?= $result->Id ?? $_POST['Id']; ?>">
                 <div class="d-grid gap-2">

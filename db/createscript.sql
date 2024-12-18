@@ -36,6 +36,7 @@ CREATE TABLE HoogsteAchtbaanVanEuropa
     ,Land                VARCHAR(50)                    NOT NULL
     ,Topsnelheid         TINYINT         UNSIGNED       NOT NULL
     ,Hoogte              TINYINT         UNSIGNED       NOT NULL
+    ,Bouwjaar            DATE                           NOT NULL    
     ,IsActief            BIT                            NOT NULL    DEFAULT 1
     ,Opmerking           VARCHAR(255)                       NULL    DEFAULT NULL
     ,DatumAangemaakt     DATETIME(6)                    NOT NULL
@@ -60,15 +61,16 @@ INSERT INTO HoogsteAchtbaanVanEuropa
     ,NaamPretPark        
     ,Land                
     ,Topsnelheid         
-    ,Hoogte              
+    ,Hoogte
+    ,Bouwjaar             
     ,IsActief                
     ,Opmerking
     ,DatumAangemaakt     
     ,DatumGewijzigd
 )
 VALUES
- ('Kingda Ka', 'Six Flags Great Adventure', 'Verenigd koninkrijk', 206, 127, 1, NULL, SYSDATE(6), SYSDATE(6))
-,('Red Force', 'Ferrari Land', 'Spanje', 180, 112, 1, NULL, SYSDATE(6), SYSDATE(6))
-,('Hyperion', 'Energylandia', 'Polen', 142, 77, 1, NULL, SYSDATE(6), SYSDATE(6))
-,('Shambhala', 'PortAventura Park', 'Spanje', 134, 76, 1, NULL, SYSDATE(6), SYSDATE(6))
-,('Schwur des Kärnan', 'Hansa Park', 'Duitsland', 127, 73, 1, NULL, SYSDATE(6), SYSDATE(6));
+ ('Kingda Ka', 'Six Flags Great Adventure', 'Verenigd koninkrijk', 206, 127, '2001-11-02', 1, NULL, SYSDATE(6), SYSDATE(6))
+,('Red Force', 'Ferrari Land', 'Spanje', 180, 112, '2002-12-03', 1, NULL, SYSDATE(6), SYSDATE(6))
+,('Hyperion', 'Energylandia', 'Polen', 142, 77, '2004-01-05', 1, NULL, SYSDATE(6), SYSDATE(6))
+,('Shambhala', 'PortAventura Park', 'Spanje', 134, 76,'2007-02-12', 1, NULL, SYSDATE(6), SYSDATE(6))
+,('Schwur des Kärnan', 'Hansa Park', 'Duitsland', 127, 73, '2009-4-16', 1, NULL, SYSDATE(6), SYSDATE(6));

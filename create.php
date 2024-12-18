@@ -38,7 +38,8 @@
               ,NaamPretPark        
               ,Land                
               ,Topsnelheid         
-              ,Hoogte              
+              ,Hoogte
+              ,Bouwjaar              
               ,IsActief                
               ,Opmerking
               ,DatumAangemaakt     
@@ -50,6 +51,7 @@
               ,:land
               ,:topsnelheid
               ,:hoogte
+              ,:bouwjaar
               ,1 
               ,NULL
               ,SYSDATE(6) 
@@ -66,6 +68,7 @@
   $statement->bindValue(':land', $_POST['land'], PDO::PARAM_STR);
   $statement->bindValue(':topsnelheid', $_POST['topsnelheid'], PDO::PARAM_INT);
   $statement->bindValue(':hoogte', $_POST['hoogte'], PDO::PARAM_INT);
+  $statement->bindValue(':bouwjaar', $_POST['bouwjaar'], PDO::PARAM_STR);
 
   /**
    * Voer de gepreparede sql-query uit
@@ -132,6 +135,10 @@
                 <div class="mb-3">
                     <label for="inputHoogte" class="form-label">Hoogte:</label>
                     <input name="hoogte" placeholder="Vul de hoogte in" type="number" min="0" max="255" class="form-control" id="inputHoogte" value="<?= $_POST['hoogte'] ?? '' ?>">	
+                </div>
+                <div class="mb-3">
+                    <label for="inputBouwjaar" class="form-label">Bouwjaar:</label>
+                    <input name="bouwjaar" placeholder="Vul het bouwjaar in" type="date" min="1900-01-01" max="2001-01-01" class="form-control" id="inputBouwjaar" value="<?= $_POST['bouwjaar'] ?? '' ?>">	
                 </div>
                 <div class="d-grid gap-2">
                     <button name="submit" type="submit" class="btn btn-primary btn-lg mt-2">Verstuur</button>
