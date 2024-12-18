@@ -115,23 +115,23 @@
             <form action="create.php" method="POST">
                 <div class="mb-3">
                     <label for="inputNaamAchtbaan" class="form-label">Naam Achtbaan:</label>
-                    <input name="naamAchtbaan" placeholder="Vul de naam van de achtbaan in" type="text" class="form-control" id="inputNaamAchtbaan">
+                    <input name="naamAchtbaan" placeholder="Vul de naam van de achtbaan in" type="text" class="form-control" id="inputNaamAchtbaan" value="<?= $_POST['naamAchtbaan'] ?? '' ?>">
                 </div>
                 <div class="mb-3">
                     <label for="inputNaamPretpark" class="form-label">Naam Pretpark:</label>
-                    <input name="naamPretpark" placeholder="Vul de naam van de achtbaan in" type="text" class="form-control" id="inputNaamPretpark">
+                    <input name="naamPretpark" placeholder="Vul de naam van de achtbaan in" type="text" class="form-control" id="inputNaamPretpark" value="<?= $_POST['naamPretpark'] ?? '' ?>">
                 </div>
                 <div class="mb-3">
                     <label for="inputLand" class="form-label">Land:</label>
-                    <input name="land" placeholder="Vul de naam van het land in" type="text" class="form-control" id="inputLand">
+                    <input name="land" placeholder="Vul de naam van het land in" type="text" class="form-control" id="inputLand" value="<?= $_POST['land'] ?? '' ?>">
                 </div>
                 <div class="mb-3">
                     <label for="inputTopsnelheid" class="form-label">Topsnelheid:</label>
-                    <input name="topsnelheid" placeholder="Vul de topsnelheid in" type="number" min="0" max="255" class="form-control" id="inputTopsnelheid">
+                    <input name="topsnelheid" placeholder="Vul de topsnelheid in" type="number" min="0" max="255" class="form-control" id="inputTopsnelheid" value="<?= $_POST['topsnelheid'] ?? '' ?>">
                 </div>
                 <div class="mb-3">
                     <label for="inputHoogte" class="form-label">Hoogte:</label>
-                    <input name="hoogte" placeholder="Vul de hoogte in" type="number" min="0" max="255" class="form-control" id="inputHoogte">
+                    <input name="hoogte" placeholder="Vul de hoogte in" type="number" min="0" max="255" class="form-control" id="inputHoogte" value="<?= $_POST['hoogte'] ?? '' ?>">	
                 </div>
                 <div class="d-grid gap-2">
                     <button name="submit" type="submit" class="btn btn-primary btn-lg mt-2">Verstuur</button>
